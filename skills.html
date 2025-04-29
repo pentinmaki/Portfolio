@@ -23,38 +23,53 @@
 
       <div class="skill">
         <label>HTML</label>
-        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+        <div class="bar">
+          <div class="fill" style="width: 75%;" title="Hyvä ymmärrys HTML5-rakenteesta ja semantiikasta">75%</div>
+        </div>
       </div>
-
+      
       <div class="skill">
         <label>CSS</label>
-        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+        <div class="bar">
+          <div class="fill" style="width: 70%;" title="Hyvä hallinta Flexbox, Grid ja animaatioista">70%</div>
+        </div>
       </div>
-
+      
       <div class="skill">
         <label>JavaScript</label>
-        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+        <div class="bar">
+          <div class="fill" style="width: 40%;" title="DOM-manipulointi, eventit, fetch, ES6+">40%</div>
+        </div>
       </div>
-
+      
       <div class="skill">
         <label>React</label>
-        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+        <div class="bar">
+          <div class="fill" style="width: 45%;" title="Komponentit, props, hookit, SPA-rakenne">45%</div>
+        </div>
       </div>
-
+      
       <div class="skill">
         <label>PHP</label>
-        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+        <div class="bar">
+          <div class="fill" style="width: 25%;" title="Perusrakenteet, lomakekäsittely, MySQL-yhteydet">25%</div>
+        </div>
       </div>
-
+      
       <div class="skill">
         <label>MySQL</label>
-        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+        <div class="bar">
+          <div class="fill" style="width: 30%;" title="CRUD-kyselyt, JOINit, tietokantasuunnittelu">30%</div>
+        </div>
       </div>
-
+      
       <div class="skill">
         <label>WordPress</label>
-        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+        <div class="bar">
+          <div class="fill" style="width: 65%;" title="Teemojen muokkaus, lisäosat, ylläpito">65%</div>
+        </div>
       </div>
+      
     </section>
   </main>
   <script>
@@ -85,5 +100,41 @@
       animateBars(); // Tarkistetaan heti sivun latauksessa
     });
     </script>
+    <footer>
+        <div class="footer-content">
+          <div class="footer-nav">
+            <h3>Valikko</h3>
+            <ul>
+              <li><a href="#hero">Etusivu</a></li>
+              <li><a href="#services">Palvelut</a></li>
+              <li><a href="#skills">Taidot</a></li>
+              <li><a href="#contact">Yhteystiedot</a></li>
+              <li><a href="https://github.com">GitHub</a></li>
+            </ul>
+          </div>
+          <div class="footer-copy">
+            <p>&copy; 2025 Keijo – Kaikki oikeudet pidätetään.</p>
+          </div>
+        </div>
+      </footer>
+      
+    <button id="scrollTopBtn" title="Palaa ylös">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <script>
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+      
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            scrollTopBtn.classList.add("show");
+          } else {
+            scrollTopBtn.classList.remove("show");
+          }
+        });
+      
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      </script>
 </body>
 </html>
