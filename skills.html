@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Taidot – Keijo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="contact.html">Yhteystiedot</a></li>
+                <li><a href="skills.html">Taidot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <main>
+    <section class="skills">
+      <h1>Osaamiseni</h1>
+      <p>Alla näet tärkeimmät ohjelmointitaitoni ja niiden hallintatason.</p>
+
+      <div class="skill">
+        <label>HTML</label>
+        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+      </div>
+
+      <div class="skill">
+        <label>CSS</label>
+        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+      </div>
+
+      <div class="skill">
+        <label>JavaScript</label>
+        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+      </div>
+
+      <div class="skill">
+        <label>React</label>
+        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+      </div>
+
+      <div class="skill">
+        <label>PHP</label>
+        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+      </div>
+
+      <div class="skill">
+        <label>MySQL</label>
+        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+      </div>
+
+      <div class="skill">
+        <label>WordPress</label>
+        <div class="bar"><div class="fill" style="width: 50%">50%</div></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const fills = document.querySelectorAll(".fill");
+    
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top <= window.innerHeight && rect.bottom >= 0
+        );
+      }
+    
+      function animateBars() {
+        fills.forEach(fill => {
+          if (isInViewport(fill) && !fill.classList.contains("animated")) {
+            const width = fill.style.width;
+            fill.style.width = "0";
+            setTimeout(() => {
+              fill.style.width = width;
+              fill.classList.add("animated");
+            }, 100);
+          }
+        });
+      }
+    
+      window.addEventListener("scroll", animateBars);
+      animateBars(); // Tarkistetaan heti sivun latauksessa
+    });
+    </script>
+</body>
+</html>
