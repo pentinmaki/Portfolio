@@ -51,13 +51,6 @@
               </div>
           
               <div class="service-card">
-                <i class="fab fa-wordpress service-icon"></i>
-                <h2>WordPress-sivut</h2>
-                <p>Käyttöönotto, teeman muokkaus ja sisällönhallinta helposti hallittavaksi.</p>
-                <a href="contact.html" class="service-btn">Ota yhteyttä</a>
-              </div>
-          
-              <div class="service-card">
                 <i class="fas fa-wrench service-icon"></i>
                 <h2>Ylläpito</h2>
                 <p>Huolehdin sivustosi päivityksistä, tietoturvasta ja varmuuskopioista.</p>
@@ -73,6 +66,31 @@
           
             </div>
           </section>
+
+          <!-- Ota yhteyttä -painike -->
+<button id="openContactModal" class="contact-btn">Ota yhteyttä</button>
+
+<!-- Popup-lomake -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close-btn">&times;</span>
+        <h2>Ota yhteyttä</h2>
+        <form id="contactForm" action="submit_form.php" method="POST">
+            <label for="name">Nimi:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Sähköposti:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Viesti:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" id="submitBtn">Lähetä</button>
+        </form>
+        <div id="formStatus" class="hidden"></div>
+    </div>
+</div>
+
           
           
     </main>
@@ -115,10 +133,53 @@
       </script>
 
 <script>
+  // Hakee popup-ikkunan ja sulkupainikkeen
+const modal = document.getElementById("contactModal");
+const openModalButton = document.getElementById("openContactModal");
+const closeModalButton = document.getElementById("closeModal");
+
+// Avaa popup-ikkuna, kun painetaan "Ota yhteyttä" -painiketta
+openModalButton.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Sulkee popup-ikkunan, kun painetaan sulkupainiketta
+closeModalButton.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Sulkee popup-ikkunan, jos käyttäjä klikkaa sen ulkopuolelle
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Lomakkeen lähetys ja tarkistus
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if (name && email && message) {
+        document.getElementById("formStatus").classList.remove("hidden");
+        document.getElementById("formStatus").textContent = "Viesti lähetetty onnistuneesti!";
+        document.getElementById("formStatus").classList.add("success");
+        document.getElementById("contactForm").reset(); // Tyhjentää lomakkeen
+    } else {
+        document.getElementById("formStatus").classList.remove("hidden");
+        document.getElementById("formStatus").textContent = "Täytä kaikki kentät ennen lähettämistä!";
+        document.getElementById("formStatus").classList.add("error");
+    }
+});
+
     window.addEventListener("load", function() {
       const loader = document.getElementById("loading");
       loader.style.display = "none"; // Piilottaa animaation latauksen jälkeen
     });
+  
   </script>
             
 </body>
