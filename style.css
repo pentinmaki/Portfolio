@@ -460,3 +460,54 @@ footer {
 .contact-btn:hover {
     background-color: #45a049;
 }
+
+#timeline {
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
+}
+
+#timeline h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding-left: 20px;
+  border-left: 3px solid #007BFF;
+  max-width: 600px;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background-color: #007BFF;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.timeline-content {
+  padding-left: 1rem;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.timeline-content p {
+  margin: 0.3rem 0 0;
+  color: #555;
+}
