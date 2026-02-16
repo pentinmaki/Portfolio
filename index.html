@@ -6,28 +6,43 @@
     <title>Keijo's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico">
     <meta name="description" content="Keijo – ohjelmistokehittäjä Ilmajoelta. Portfolio ja palvelut.">
     <meta property="og:title" content="Keijo's Portfolio">
     <meta property="og:description" content="Tutustu projekteihini ja ota yhteyttä.">
     <meta property="og:image" content="https://example.com/kuva.jpg"> <!-- Korvaa omalla -->
     <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Keijo",
+    "url": "https://your-site.example.com",
+    "jobTitle": "Ohjelmistokehittäjä",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ilmajoki", "addressCountry": "FI" }
+  }
+  </script>
 </head>
 <body>
-    <div id="loading" class="loading-overlay">
+  <a class="skip-link" href="#maincontent">Siirry sisältöön</a>
+  <div id="loading" class="loading-overlay">
         <div class="loader"></div>
       </div>
-      
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="contact.html">Yhteystiedot</a></li>
-                <li><a href="skills.html">Taidot</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav class="topnav" aria-label="Päävalikko">
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+        <span class="sr-only">Valikko</span>
+      </button>
+      <ul id="primary-menu" class="menu">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="contact.html">Yhteystiedot</a></li>
+        <li><a href="skills.html">Taidot</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
+    <main id="maincontent">
         <section id="hero">
             <h1>Tervetuloa!</h1>
             <p>Olen Keijo – ohjelmistokehittäjä opiskelija Ilmajoelta.</p>
@@ -150,8 +165,21 @@
         <i class="fas fa-arrow-up"></i>
       </button>
       <script>
+        // Mobile menu toggle
+        (function(){
+          const menuToggle = document.getElementById('menuToggle');
+          const menu = document.getElementById('primary-menu');
+          if(menuToggle && menu){
+            menuToggle.addEventListener('click', function(){
+              const expanded = this.getAttribute('aria-expanded') === 'true';
+              this.setAttribute('aria-expanded', String(!expanded));
+              menu.classList.toggle('open');
+            });
+          }
+        })();
+
         const scrollTopBtn = document.getElementById("scrollTopBtn");
-      
+
         window.addEventListener("scroll", () => {
           if (window.scrollY > 300) {
             scrollTopBtn.classList.add("show");
@@ -159,7 +187,7 @@
             scrollTopBtn.classList.remove("show");
           }
         });
-      
+
         scrollTopBtn.addEventListener("click", () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });

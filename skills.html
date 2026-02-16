@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <title>Taidot – Keijo</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="contact.html">Yhteystiedot</a></li>
-                <li><a href="skills.html">Taidot</a></li>
-            </ul>
-        </nav>
-    </header>
+  <a class="skip-link" href="#maincontent">Siirry sisältöön</a>
+  <header>
+    <nav class="topnav" aria-label="Päävalikko">
+      <button id="menuToggleSkills" class="menu-toggle" aria-expanded="false" aria-controls="primary-menu-skills">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+        <span class="sr-only">Valikko</span>
+      </button>
+      <ul id="primary-menu-skills" class="menu">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="contact.html">Yhteystiedot</a></li>
+        <li><a href="skills.html">Taidot</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <main>
+  <main id="maincontent">
     <section class="skills">
       <h1>Osaamiseni</h1>
       <p>Alla näet tärkeimmät ohjelmointitaitoni ja niiden hallintatason.</p>
@@ -75,14 +81,14 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const fills = document.querySelectorAll(".fill");
-    
+
       function isInViewport(element) {
         const rect = element.getBoundingClientRect();
         return (
           rect.top <= window.innerHeight && rect.bottom >= 0
         );
       }
-    
+
       function animateBars() {
         fills.forEach(fill => {
           if (isInViewport(fill) && !fill.classList.contains("animated")) {
@@ -95,10 +101,22 @@
           }
         });
       }
-    
+
       window.addEventListener("scroll", animateBars);
       animateBars(); // Tarkistetaan heti sivun latauksessa
     });
+    // Menu toggle for this page
+    (function(){
+      const btn = document.getElementById('menuToggleSkills');
+      const menu = document.getElementById('primary-menu-skills');
+      if(btn && menu){
+        btn.addEventListener('click', function(){
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('open');
+        });
+      }
+    })();
     </script>
     <footer>
         <div class="footer-content">

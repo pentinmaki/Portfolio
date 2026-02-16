@@ -6,19 +6,25 @@
     <title>Yhteystiedot</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="contact.html">Yhteystiedot</a></li>
-                <li><a href="skills.html">Taidot</a></li>
-            </ul>
-        </nav>
-    </header>
+  <a class="skip-link" href="#maincontent">Siirry sisältöön</a>
+  <header>
+    <nav class="topnav" aria-label="Päävalikko">
+      <button id="menuToggleContact" class="menu-toggle" aria-expanded="false" aria-controls="primary-menu-contact">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+        <span class="sr-only">Valikko</span>
+      </button>
+      <ul id="primary-menu-contact" class="menu">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="contact.html">Yhteystiedot</a></li>
+        <li><a href="skills.html">Taidot</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
+    <main id="maincontent">
         <section id="contact">
           <h1>Ota yhteyttä</h1>
           <p>Voit ottaa minuun yhteyttä seuraavin keinoin:</p>
@@ -47,6 +53,19 @@
             <p>&copy; 2025 Keijo – Kaikki oikeudet pidätetään.</p>
           </div>
         </div>
+      <script>
+        (function(){
+          const btn = document.getElementById('menuToggleContact');
+          const menu = document.getElementById('primary-menu-contact');
+          if(btn && menu){
+            btn.addEventListener('click', function(){
+              const expanded = this.getAttribute('aria-expanded') === 'true';
+              this.setAttribute('aria-expanded', String(!expanded));
+              menu.classList.toggle('open');
+            });
+          }
+        })();
+      </script>
       </footer>
 </body>
 </html>

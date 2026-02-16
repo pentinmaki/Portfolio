@@ -1,50 +1,73 @@
-# Keijo's Portfolio
+# Keijo — Portfolio
 
-Tämä on henkilökohtainen portfolio-sivustoni, joka on rakennettu HTML:llä, CSS:llä ja JavaScriptillä. Sivustolla esitellään taitojani ohjelmistokehittäjänä ja mahdollisuus ottaa yhteyttä.
+Henkilökohtainen portfolio, joka esittelee osaamiseni, projektit ja tarjoaa keinot ottaa yhteyttä. Tämä harjoitusprojekti on tehty HTML:llä, CSS:llä ja JavaScriptillä.
 
 ## Sisältö
 
-- **Etusivu**: Tervetuloa-viesti ja linkki projekteihin.
-- **Projektit**: Esittelen aiempia projekteja, kuten tämän portfolio-sivuston.
-- **Palvelut**: Tarjoan verkkosivujen luomista, ylläpitoa ja ohjelmointipalveluja.
-- **Yhteystiedot**: Lomake yhteydenottoa varten.
-- **Popup-lomake**: Käyttäjät voivat ottaa yhteyttä helposti popup-ikkunan kautta.
+- Etusivu: esittely ja projektien yhteenveto
+- Projektit: projektikortit ja linkit (GitHub / Live)
+- Palvelut: tarjoamani palvelut ja hinnasto (esimerkki)
+- Taidot: osaamisprofiili ja osaamistasot
+- Yhteystiedot: lomake ja yhteystiedot
 
-## Käyttöohjeet
+## Ominaisuudet
 
-1. **Kloonaaminen/lataminen**:
-    - Voit kloonata projektin tai ladata sen GitHubista:
-    ```bash
-    git clone https://github.com/pentinmaki/portfolio.git
-    ```
+- Responsiivinen layout ja yksinkertainen mobiilivalikko
+- Saavutettavuusparannuksia (skip-link, ARIA-attribuutit)
+- Popup-yhteydenottolomake (asiakaspuolen validointi)
+- Animaatiot osaamisprofiilille (asteikkopalkit)
 
-2. **Avaa tiedosto selaimessa**:
-    - Voit avata `index.html`-tiedoston suoraan selaimessasi ilman erillistä palvelinta.
+## Paikallinen esikatselu
 
-## Asennus
+1. Kloonaa tai lataa repo:
 
-1. **HTML-tiedostot**: Sisältää pääsivun `index.html` ja erilliset sivut, kuten `contact.html`.
-2. **CSS**: Tyylitiedostot `style.css`, jotka määrittävät sivuston ulkoasun ja responsiivisuuden.
+```bash
+git clone https://github.com/pentinmaki/portfolio.git
+cd portfolio
+```
 
-3. **Font Awesome**: Käytetty ikoneita varten.
+2. Avaa `index.html` selaimessa: kaksoisklikkaus tai vedä tiedosto selaimeen.
 
-### Asennusohjeet:
+Vaihtoehtoisesti voit käyttää yksinkertaista paikallista serveriä (esim. Python):
 
-- Lataa tai kloonaa projektikansio.
-- Avaa HTML-tiedostot selaimessa.
-  
+```bash
+# Python 3
+python -m http.server 8000
+# Selaa http://localhost:8000
+```
 
-## Toiminnallisuus
+## Julkaisu
 
-- **Popup-lomake**: Lomake avautuu popup-ikkunaan ja käyttäjät voivat täyttää yhteystietonsa.
-- **Responsiivisuus**: Sivusto on responsiivinen ja mukautuu eri laitteille.
-- **Lomakkeen validointi**: Lomakkeen kenttien täyttö tarkistetaan ennen lähettämistä.
+- Suosittelen GitHub Pages -julkaisua: aseta branch `main` tai `gh-pages` GitHubin Pages-asetuksista.
 
-## Tavoitteet
+## Muokkaus & laajennus
 
-- Tämä portfolio toimii esimerkkinä verkkosivujen tekemisestä HTML:llä, CSS:llä ja JavaScriptillä.
-- Tulevaisuudessa haluan laajentaa sivustoa lisäämällä projekteja ja lisää interaktiivisia ominaisuuksia.
+- Projektin rakenne on yksinkertainen — lisää uusia HTML-sivuja ja päivitä `style.css`.
+- Voit siirtää projektit JSON-tiedostoon ja renderöidä ne JavaScriptillä helpompaa ylläpitoa varten.
+
+## Lomake (yhteystiedot)
+
+- Nykyinen popup-lomake toimii paikallisella validoinnilla. Jos haluat toimivan sähköposti lähetyksen ilman omaa backendia, käytä esim. Formspree tai EmailJS ja päivitä `form action` tai JavaScript.
+
+## Saavutettavuus
+
+- Lisäsin skip-linkin ja ARIA-attribuutteja valikolle. Testaa sivustoa näppäimistöllä ja ruudunlukuohjelmalla.
+
+## Kehitysaskelia / To-do
+
+- Lisää projektille kuvat ja yksityiskohtaiset case-esimerkit
+- Lisää kommit- ja deploy-työkalut (GitHub Actions)
+- Lisää dark-mode-teema ja teemanvaihtaja
+
+## Yhteystiedot
+
+- Sähköposti: keijo@example.com
+- GitHub: https://github.com/pentinmaki
 
 ## Lisenssi
 
-Tämä projekti on avoimen lähdekoodin projekti ja julkaistu MIT-lisenssillä. Voit käyttää, muokata ja jakaa tätä koodia vapaasti.
+Tämä projekti on MIT-lisenssillä.
+
+---
+
+Päivitetty: 2026-02-16 — parannuksia saavutettavuuteen ja README-dokumentaatioon.
